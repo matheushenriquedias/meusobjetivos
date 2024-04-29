@@ -21,7 +21,7 @@ const tempos =
 [tempoObjetivo1,tempoObjetivo2, tempoObjetivo3,tempoObjetivo4];
 
 
-functioncalculaTempo(tempoObjetivo) {
+function calculaTempo(tempoObjetivo) {
 
     let tempoAtual = new Date();
     let tempoFinal = tempoObjetivo-tempoAtual;
@@ -43,6 +43,16 @@ function atualizaCronometro(){
     for (let i= 0; i< contadores.length;i++) {
         Document.getElementByld("dias"+i).textContent=
     calculaTempo(tempos[i])[0];
-        document.getElementById("horas"+i).
+        document.getElementById("horas"+i).textContent=
+    calculaTempo(tempos[i])[1];
+        document.getElementByld("min"+i).textContent=
+    calculaTempo(tempos[i])[2];
+        document.getElementByld("seg"+i).textContent=
+    calculaTempo(tempos[i])[3];
     }
 }
+function comecaConometro(){
+    atualizaCronometro();
+    setInterval(atualizaConometro, 1000);
+}
+comecaConometro();
